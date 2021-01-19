@@ -8,7 +8,7 @@ import kotlin.math.ceil
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +31,7 @@ class MainActivity : AppCompatActivity() {
             else -> 0.15
         }
         var tip = tipPercentage * cost
-        val roundUp = binding.roundUpSwitch.isChecked
-        if (roundUp) {
+        if (binding.roundUpSwitch.isChecked) {
             tip = ceil(tip)
         }
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
